@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[90vh] pt-28 overflow-hidden">
+    <section id="home" className="relative min-h-[92vh] pt-28 overflow-hidden">
       <div className="absolute inset-0">
         <Spline scene="https://prod.spline.design/VyGeZv58yuk8j7Yy/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
@@ -38,6 +38,13 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
+      </div>
+
+      {/* Floating particles for extra smoothness */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="animate-[float_10s_ease-in-out_infinite] absolute left-10 top-24 h-2 w-2 rounded-full bg-cyan-300/60 blur-[2px]" />
+        <div className="animate-[float_12s_ease-in-out_infinite] absolute right-16 top-40 h-1.5 w-1.5 rounded-full bg-blue-400/60 blur-[1px]" />
+        <div className="animate-[float_14s_ease-in-out_infinite] absolute left-1/3 bottom-24 h-1.5 w-1.5 rounded-full bg-teal-300/60 blur-[1px]" />
       </div>
     </section>
   )

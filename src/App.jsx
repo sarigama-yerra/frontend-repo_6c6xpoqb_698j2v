@@ -4,15 +4,12 @@ import Features from './components/Features'
 import Work from './components/Work'
 import Process from './components/Process'
 import Contact from './components/Contact'
+import SmoothBackground from './components/SmoothBackground'
 
 function App() {
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Ambient background gradients */}
-      <div className="pointer-events-none fixed inset-0 -z-0">
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-80 w-[60rem] rounded-full bg-gradient-to-r from-blue-500/20 via-cyan-400/20 to-teal-300/20 blur-3xl" />
-        <div className="absolute -bottom-10 right-10 h-60 w-60 rounded-full bg-blue-500/10 blur-3xl" />
-      </div>
+      <SmoothBackground />
 
       <Navbar />
       <main>

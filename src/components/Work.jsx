@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Tilt3D from './Tilt3D'
 
 const projects = [
   {
@@ -36,14 +37,23 @@ export default function Work() {
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {projects.map((p, i) => (
-            <motion.a key={i} href="#contact" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 * i, duration: 0.6 }} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-              <img src={p.img} alt={p.title} className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent" />
-              <div className="absolute bottom-0 p-5">
-                <h3 className="text-white font-medium text-lg">{p.title}</h3>
-                <p className="text-slate-300/85 text-sm">{p.desc}</p>
-              </div>
-            </motion.a>
+            <Tilt3D key={i} className="[transform-style:preserve-3d]">
+              <motion.a
+                href="#contact"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.05 * i, duration: 0.6 }}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 block"
+              >
+                <img src={p.img} alt={p.title} className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 will-change-transform" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent" />
+                <div className="absolute bottom-0 p-5">
+                  <h3 className="text-white font-medium text-lg">{p.title}</h3>
+                  <p className="text-slate-300/85 text-sm">{p.desc}</p>
+                </div>
+              </motion.a>
+            </Tilt3D>
           ))}
         </div>
       </div>

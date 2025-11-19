@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Sparkles, Palette, Zap, Shapes } from 'lucide-react'
+import Tilt3D from './Tilt3D'
 
 const features = [
   {
@@ -40,13 +41,21 @@ export default function Features() {
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 * i, duration: 0.6 }} className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:bg-white/10 transition-colors">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-500 via-cyan-400 to-teal-300 flex items-center justify-center text-slate-900 shadow-[0_10px_30px_-10px_rgba(59,130,246,0.7)]">
-                {<f.icon size={20} />}
-              </div>
-              <h3 className="mt-4 text-white font-medium text-lg">{f.title}</h3>
-              <p className="mt-2 text-slate-300/80 text-sm">{f.desc}</p>
-            </motion.div>
+            <Tilt3D key={i}>
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.05 * i, duration: 0.6 }}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur hover:bg-white/10 transition-colors"
+              >
+                <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-blue-500 via-cyan-400 to-teal-300 flex items-center justify-center text-slate-900 shadow-[0_10px_30px_-10px_rgba(59,130,246,0.7)]">
+                  {<f.icon size={20} />}
+                </div>
+                <h3 className="mt-4 text-white font-medium text-lg">{f.title}</h3>
+                <p className="mt-2 text-slate-300/80 text-sm">{f.desc}</p>
+              </motion.div>
+            </Tilt3D>
           ))}
         </div>
       </div>
